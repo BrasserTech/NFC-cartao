@@ -1,0 +1,175 @@
+/* Importação de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+/* Estilos globais */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121226; /* Fundo azul escuro mais intenso para o desktop */
+    color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Container do desktop */
+.desktop-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para a moldura do celular (visível apenas em desktop) */
+.phone-frame {
+    display: none; /* Esconde a moldura por padrão */
+    position: relative;
+    width: 375px;
+    height: 667px;
+    background: #000;
+    border-radius: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); /* Sombra mais forte */
+    overflow: hidden;
+    /* Adiciona um pequeno brilho na borda para um efeito mais premium */
+    outline: 2px solid rgba(135, 206, 235, 0.2);
+    outline-offset: -2px;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background: linear-gradient(135deg, #1d1d3a 0%, #2e2e50 100%); /* Gradiente de fundo */
+    position: relative;
+    /* Novo padrão de fundo mais orgânico e tecnológico */
+    background-image:
+        /* Linhas diagonais mais suaves */
+        linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0.05)),
+        linear-gradient(-45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0.05));
+    background-size: 40px 40px; /* Ajuste o tamanho para mais ou menos densidade */
+    background-position: 0 0;
+    animation: backgroundMove 60s linear infinite; /* Animação sutil para o fundo */
+}
+
+/* Animação para o fundo da tela do celular */
+@keyframes backgroundMove {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 400px 400px; /* Ajuste para o tamanho do background-size */
+    }
+}
+
+
+/* Efeito de luz sutil no topo da tela do celular */
+.phone-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 50px;
+    background: radial-gradient(ellipse at center, rgba(135, 206, 250, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(20px);
+    z-index: 1; /* Garante que fique abaixo do conteúdo */
+}
+
+/* Estilos para a página de direcionamento */
+.card-container {
+    position: relative; /* Para z-index */
+    z-index: 2; /* Garante que o conteúdo fique acima do efeito de luz */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2.5rem 1.5rem; /* Mais padding */
+    height: 100%;
+    box-sizing: border-box;
+    color: #e0e0e0;
+}
+
+.logo {
+    width: 130px; /* Um pouco menor para caber melhor na moldura circular */
+    height: 130px;
+    border-radius: 50%;
+    margin-bottom: 2.5rem; /* Mais espaçamento */
+    background-color: #fff;
+    padding: 8px; /* Mais padding para a logo dentro do círculo branco */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra mais suave */
+    object-fit: contain;
+    border: 3px solid rgba(135, 206, 250, 0.3); /* Borda sutilmente azulada */
+}
+
+h1 {
+    font-size: 2.4rem; /* Título um pouco maior */
+    margin-bottom: 0.8rem;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para o texto */
+}
+
+p {
+    font-size: 1.15rem; /* Texto um pouco maior */
+    color: #a0a0c0; /* Cor do texto de descrição mais suave */
+    margin-bottom: 3rem; /* Mais espaçamento */
+    line-height: 1.6;
+    max-width: 90%; /* Aumenta a largura para melhor leitura */
+    font-weight: 400;
+}
+
+.btn {
+    width: 90%;
+    max-width: 320px; /* Botões um pouco mais largos */
+    padding: 1.2rem 1.5rem; /* Mais padding nos botões */
+    margin-top: 1.3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; /* Transição mais suave */
+    font-size: 1.2rem; /* Tamanho da fonte dos botões */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra inicial para os botões */
+}
+
+.btn i {
+    margin-right: 12px; /* Mais espaçamento para o ícone */
+    font-size: 1.4rem;
+}
+
+.btn:hover {
+    transform: translateY(-6px) scale(1.02); /* Efeito de elevação e leve escala */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35); /* Sombra mais intensa no hover */
+}
+
+/* Gradientes dos botões um pouco mais vibrantes */
+.instagram-btn {
+    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+}
+
+.whatsapp-btn {
+    background-color: #2fb95b; /* Verde WhatsApp levemente ajustado */
+}
+
+/* Responsividade: para telas maiores que 768px (desktop) */
+@media (min-width: 768px) {
+    body {
+        background-color: #121226;
+    }
+    .phone-frame {
+        display: block;
+    }
+    .card-container {
+        padding-top: 70px; /* Ajusta o padding para o topo na moldura do celular */
+    }
+}
